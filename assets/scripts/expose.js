@@ -30,15 +30,15 @@ function init() {
     }
     else if(event.target.value > 0 && event.target.value < 33){
       img2.src = "assets/icons/volume-level-1.svg";
-      sound.volume = 0.33;
+      sound.volume = (event.target.value)/100;
     }
     else if(event.target.value >= 33 && event.target.value < 67){
       img2.src = "assets/icons/volume-level-2.svg";
-      sound.volume = 0.66;
+      sound.volume = (event.target.value)/100;
     }
     else if(event.target.value >= 67){
       img2.src = "assets/icons/volume-level-3.svg";
-      sound.volume = 1;
+      sound.volume = (event.target.value)/100;
     }
   })
   const buttonElement = document.querySelector("button");
@@ -46,12 +46,11 @@ function init() {
     sound.play();
     console.log(sound);
     if(confetti){
-      const jsConfetti = new jsConfetti();
-      jsConfetti.addConfetti();
- /*       confettiColors: [
-          '#ff0a54', '#ff477e', '#ff7096', '#ff85a1', '#fbb1bd', '#f9bec7',
-        ],*/
-     // )
+      const jsConfetti = new JSConfetti();
+      jsConfetti.addConfetti({confettiColors: [
+        '#ff0a54', '#ff477e', '#ff7096', '#ff85a1', '#fbb1bd', '#f9bec7',
+      ]
+    });
     }
   })
 }
